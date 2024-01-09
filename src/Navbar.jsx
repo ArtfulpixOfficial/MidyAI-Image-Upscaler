@@ -2,11 +2,14 @@ import { Button } from "./Button";
 
 export function Navbar({ image, newImage, setNewImage }) {
   const handleDownload = function () {
-    if (!image || image === "sample.jpg") return;
+    if (!newImage) return;
+    console.log(newImage);
     const link = document.createElement("a");
     link.href = newImage;
-    link.download = "generated_image.png";
+    link.download = "generated_image.jpg";
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
   return (
     <nav className={newImage ? "searchNav" : "normal"}>

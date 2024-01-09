@@ -6,6 +6,7 @@ import UploadFile from "./UploadFile";
 export function Main({ image, newImage, setImage, setNewImage }) {
   async function onFileChange(file) {
     setImage(file);
+    await clipBoardAPI(file);
     const newImageURL = await clipBoardAPI(file);
     console.log(newImageURL);
     setNewImage(newImageURL);
