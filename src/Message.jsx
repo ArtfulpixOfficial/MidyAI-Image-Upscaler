@@ -3,10 +3,10 @@ export function Message() {
     <section className="message show">
       <img src="midyAI.png" alt="midyAI logo" />
       <h1 className="text-4xl sm:text-[52px] font-bold font-secondary text-gray-800 dark:text-gray-100 uppercase relative">
-        MIDYAI SDXL
+        MIDYAI IMAGE UPSCALER
       </h1>
       <h2 className="text-xl font-semibold text-gray-600 dark:text-gray-400">
-        Create multiple variations from a single image with Stable Diffusion.
+        Upscale, denoise and enhance your images in seconds
       </h2>
     </section>
   );
