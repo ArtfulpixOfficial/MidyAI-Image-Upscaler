@@ -5,8 +5,6 @@ import {
 
 export function ImageSection({ image, newImage }) {
   const imageUrl = URL.createObjectURL(image);
-  console.log(imageUrl);
-  console.log(newImage);
   return (
     <section className="imageSection">
       <ReactCompareSlider

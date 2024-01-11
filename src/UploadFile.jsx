@@ -2,7 +2,7 @@ const UploadFile = ({ onFileChange }) => {
   const handleFileChange = (e) => {
     const files = e.target.files || e.dataTransfer.files;
     if (!files) return;
-    console.log(files);
+
     onFileChange(files[0]); // Send the file to parent component
   };
   const handleClick = () => {

@@ -1,7 +1,7 @@
 const gettingStatusOfTask = async function (taskId) {
   let taskStatus = "Not even started";
 
-  const checkStatus = async function () {
+  const checkCurrentStatus = async function () {
     const { status } = await fetch(
       `https://clipdrop-api.co/async-tasks/v1/task-status/${taskId}`,
       {
@@ -11,27 +11,37 @@ const gettingStatusOfTask = async function (taskId) {
       }
     ).then((res) => res.json());
     taskStatus = status;
+    console.log(status);
     if (status === "completed") {
       clearInterval(statusInterval);
-      return taskStatus;
     }
   };
-  const statusInterval = setInterval(checkStatus, 10000);
-  while (taskStatus !== "completed") {
-    await checkStatus();
-  }
-  return taskStatus;
+  const statusInterval = setInterval(checkCurrentStatus, 5000);
+
+  return new Promise((resolve) => {
+    const checkStatus = () => {
+      if (taskStatus === "completed") resolve(taskStatus);
+      else {
+        setTimeout(checkStatus, 1000);
+      }
+    };
+    checkStatus();
+  });
 };
 
-export async function clipBoardAPI(file) {
-  console.log(file);
-
+export async function clipBoardAPI(
+  file,
+  imgWidth,
+  imgHeight,
+  target_upscale = 2,
+  strategy = "smooth"
+) {
   // Making The body of the request
   const form = new FormData();
   form.append("image_file", file);
-  form.append("target_width", 1024);
-  form.append("target_height", 1024);
-  form.append("strategy", "detailed");
+  form.append("target_width", target_upscale * imgWidth);
+  form.append("target_height", target_upscale * imgHeight);
+  form.append("strategy", strategy);
 
   // Sending the post request to the api
   const {
@@ -60,6 +70,5 @@ export async function clipBoardAPI(file) {
     }
   ).then((res) => res.json());
 
-  console.log(imageURL);
   return imageURL;
 }

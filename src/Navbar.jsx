@@ -1,30 +1,25 @@
 import { Button } from "./Button";
 
-export function Navbar({ image, newImage, setNewImage }) {
-  const handleDownload = function () {
+export function Navbar({ image, newImage, reset }) {
+  const handleDownload = async function () {
     if (!newImage) return;
-    console.log(newImage);
+    const imageUrl = `/proxy-image/${newImage.slice(31)}`;
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
     const link = document.createElement("a");
-    link.href = newImage;
+    link.href = URL.createObjectURL(blob);
     link.download = "generated_image.jpg";
-    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
   };
   return (
-    <nav className={newImage ? "searchNav" : "normal"}>
-      {newImage ? (
+    <nav className={image ? "searchNav" : "normal"}>
+      {image ? (
         <>
-          <Button
-            className="btnBack show"
-            onClick={() => {
-              setNewImage(null);
-            }}
-          >{`< Back`}</Button>
+          <Button className="btnBack show" onClick={reset}>{`< Back`}</Button>
           <Button
             className="btnDownload show"
             onClick={handleDownload}
-            disabled={!image || image === "sample.jpg" ? true : false}
+            disabled={newImage ? false : true}
           >
             <svg
               width="20"
