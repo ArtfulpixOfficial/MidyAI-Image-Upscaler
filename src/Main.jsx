@@ -30,6 +30,7 @@ export function Main({
         };
         const newImageURL = await clipBoardAPI(originalImage, width, height);
         setNewImage(newImageURL);
+        setIsLoading((v) => !v);
       };
 
       image.src = e.target.result;
