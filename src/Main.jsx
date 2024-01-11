@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { clipBoardAPI } from "./api";
 import { ImageSection } from "./ImageSection";
 import { Message } from "./Message";
 import UploadFile from "./UploadFile";
 import UpscaleOptions from "./UpscaleOptions";
+import { Hourglass } from "react-loader-spinner";
 
 export function Main({
   image,
@@ -14,7 +16,9 @@ export function Main({
   handleTargetUpscale,
   handleStrategy,
 }) {
+  const [isloading, setIsLoading] = useState(false);
   const handleSubmit = function () {
+    setIsLoading((v) => !v);
     const originalImage = image;
     const reader = new FileReader();
     reader.onload = function (e) {
@@ -42,6 +46,16 @@ export function Main({
     <main>
       {newImage ? (
         <ImageSection image={image} newImage={newImage} />
+      ) : isloading ? (
+        <Hourglass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={["#fff", "#424b5a"]}
+        />
       ) : (
         <>
           {!image ? (

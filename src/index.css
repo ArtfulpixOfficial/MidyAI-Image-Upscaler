@@ -246,3 +246,7 @@ form {
   cursor: pointer; /* Set cursor to pointer only when not disabled */
   /* Your styles for .hover class */
 }
+
+.bl {
+  color: #424b5a;
+}
