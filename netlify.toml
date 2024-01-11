@@ -2,8 +2,10 @@
   from = “/*”
   to = “/index.html”
   status = 200
+  force = true
 
 [[redirects]]
   from = "/proxy-image/*"
   to = "https://storage.googleapis.com/:splat"
   status = 200
+  force = true
