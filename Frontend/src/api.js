@@ -2,7 +2,7 @@ export async function clipBoardAPI(image, targetUpscale = 2) {
   // Making The body of the request
   if (!image) return;
   const { result: imageURL } = await fetch(
-    `https://midy-ai-replace-background-backend.vercel.app/api/convert`,
+    `https://midy-ai-image-upscaler-backend.vercel.app/api/convert`,
     {
       method: "POST",
       headers: {
