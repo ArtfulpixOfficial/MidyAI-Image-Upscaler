@@ -12,8 +12,8 @@ export function ImageSection({ image, newImage }) {
         itemTwo={<ReactCompareSliderImage src={newImage} alt="Image two" />}
         transition="1s ease-in-out"
         style={{
-          width: "635px",
-          height: "635px",
+          width: "70%",
+          height: "70%",
         }}
       />
     </section>
