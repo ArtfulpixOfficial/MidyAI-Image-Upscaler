@@ -250,3 +250,56 @@ form {
 .bl {
   color: #424b5a;
 }
+
+
+/* Media Queries for smaller devices */
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  .message h1,
+  .message h2 {
+    text-align: center;
+  }
+
+  .message h1 {
+    font-size: 40px;
+  }
+  .message h2 {
+    font-size: 12px;
+  }
+  .upscaling-options-bar {
+    flex-direction: column;
+  }
+  .upscale-btn {
+    justify-content: center;
+  }
+
+  .upload-message {
+    text-align: center;
+  }
+
+  .upload-section {
+    width: 80%;
+  }
+
+  .original-image {
+    width: 70%;
+    height: auto;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* For Ipads and Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .upscaling-options-bar {
+    flex-direction: column;
+  }
+  .upscale-btn {
+    justify-content: center;
+  }
+}
+
