@@ -293,7 +293,10 @@ form {
   nav {
     flex-direction: column;
     gap: 30px;
-    margin-bottom: 80px;
+  }
+
+  .searchNav{
+    margin-bottom: 100px;
   }
 }
 
