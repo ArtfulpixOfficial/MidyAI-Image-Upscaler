@@ -6,7 +6,7 @@ export function Message() {
         MIDYAI IMAGE UPSCALER
       </h1>
       <h2 className="text-xl font-semibold text-gray-600 dark:text-gray-400">
-        Upscale, denoise and enhance your images in seconds
+        Boost image quality, remove noise, and refine photos instantly
       </h2>
     </section>
   );
