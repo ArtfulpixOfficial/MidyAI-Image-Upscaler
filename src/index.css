@@ -12,11 +12,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  background-color: rgb(23 23 23);
+  background-color: #0e0c15;
 }
 
 .App {
-  background-color: rgb(23 23 23);
+  background-color: #0e0c15;
   min-height: 100vh;
 }
 
@@ -89,13 +89,13 @@ main {
   font-size: 52px;
   text-transform: uppercase;
   margin: 10px 0;
-  text-align:center;
+  text-align: center;
 }
 
 .message h2 {
   font-size: 16px;
   color: rgb(186 186 186);
-  text-align:center;
+  text-align: center;
 }
 
 input {
@@ -254,7 +254,6 @@ form {
   color: #424b5a;
 }
 
-
 /* Media Queries for smaller devices */
 
 /* For Mobile Devices */
@@ -295,7 +294,7 @@ form {
     gap: 30px;
   }
 
-  .searchNav{
+  .searchNav {
     margin-bottom: 100px;
   }
 }
@@ -309,4 +308,3 @@ form {
     justify-content: center;
   }
 }
-
